@@ -1454,20 +1454,6 @@ static void cpufreq_out_of_sync(unsigned int cpu, unsigned int old_freq,
 	cpufreq_notify_transition(policy, &freqs, CPUFREQ_POSTCHANGE);
 }
 
-unsigned int cpufreq_quick_get_util(unsigned int cpu)
-{
- struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
- unsigned int ret_util = 0;
-
- if (policy) {
- ret_util = policy->util;
- cpufreq_cpu_put(policy);
- }
-
- return ret_util;
-}
-EXPORT_SYMBOL(cpufreq_quick_get_util);
-
 /**
  * cpufreq_quick_get - get the CPU frequency (in kHz) from policy->cur
  * @cpu: CPU number

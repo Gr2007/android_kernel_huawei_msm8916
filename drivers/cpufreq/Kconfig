@@ -126,6 +126,19 @@ config CPU_FREQ_DEFAULT_GOV_DARKNESS
 	bool "darkness"
 	select CPU_FREQ_GOV_DARKNESS
 
+config CPU_FREQ_DEFAULT_GOV_SMARTMAX
+ 	bool "smartmax"
+ 	select CPU_FREQ_GOV_SMARTMAX
+ 	help
+ 	  Use the CPUFreq governor 'smartmax' as default
+
+config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
+  	bool "zzmoove"
+  	select CPU_FREQ_GOV_ZZMOOVE
+  	select CPU_FREQ_GOV_PERFORMANCE
+  	help
+  	  Use the CPUFreq governor 'zzmoove' as default.
+ 
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -241,6 +254,18 @@ config CPU_FREQ_GOV_ALUCARD
 
 config CPU_FREQ_GOV_DARKNESS
 	tristate "'darkness' cpufreq policy governor"
+
+config CPU_FREQ_GOV_SMARTMAX
+ 	tristate "'smartmax' cpufreq policy governor"
+ 	select CPU_FREQ_TABLE
+ 	help
+ 	  'smartmax' combines ondemand and smartass2
+
+config CPU_FREQ_GOV_ZZMOOVE
+ 	tristate "'zzmoove' cpufreq governor"
+  	depends on CPU_FREQ
+  	help
+  	  ZZMoove governor is based on the modified conservative 
 
 config GENERIC_CPUFREQ_CPU0
 	tristate "Generic CPU0 cpufreq driver"
