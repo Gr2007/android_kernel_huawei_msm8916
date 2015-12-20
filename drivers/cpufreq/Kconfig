@@ -133,12 +133,23 @@ config CPU_FREQ_DEFAULT_GOV_SMARTMAX
  	  Use the CPUFreq governor 'smartmax' as default
 
 config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
-  	bool "zzmoove"
-  	select CPU_FREQ_GOV_ZZMOOVE
-  	select CPU_FREQ_GOV_PERFORMANCE
-  	help
-  	  Use the CPUFreq governor 'zzmoove' as default.
- 
+ 	bool "zzmoove"
+ 	select CPU_FREQ_GOV_ZZMOOVE
+ 	select CPU_FREQ_GOV_PERFORMANCE
+ 	help
+ 	  Use the CPUFreq governor 'zzmoove' as default.
+
+config CPU_FREQ_DEFAULT_GOV_ALUCARD
+ 	bool "alucard"
+ 	select CPU_FREQ_GOV_ALUCARD
+
+config CPU_FREQ_DEFAULT_GOV_WHEATLEY
+ 	bool "wheatley"
+ 	select CPU_FREQ_GOV_WHEATLEY
+ 	select CPU_FREQ_GOV_PERFORMANCE
+ 	---help---
+ 	  Use the CPUFreq governor 'wheatley' as default.
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -263,9 +274,17 @@ config CPU_FREQ_GOV_SMARTMAX
 
 config CPU_FREQ_GOV_ZZMOOVE
  	tristate "'zzmoove' cpufreq governor"
-  	depends on CPU_FREQ
-  	help
-  	  ZZMoove governor is based on the modified conservative 
+ 	depends on CPU_FREQ
+ 	help
+ 	  ZZMoove governor is based on the modified conservative
+
+config CPU_FREQ_GOV_ALUCARD
+ 	tristate "'alucard' cpufreq governor"
+ 	depends on CPU_FREQ
+
+config CPU_FREQ_GOV_WHEATLEY
+ 	tristate "'wheatley' cpufreq governor"
+ 	depends on CPU_FREQ 
 
 config GENERIC_CPUFREQ_CPU0
 	tristate "Generic CPU0 cpufreq driver"

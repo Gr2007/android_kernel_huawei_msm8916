@@ -1241,7 +1241,6 @@ static void hub_activate(struct usb_hub *hub, enum hub_activation_type type)
 		/* Don't do a long sleep inside a workqueue routine */
 		if (type == HUB_INIT2) {
 			PREPARE_DELAYED_WORK(&hub->init_work, hub_init_func3);
-<<<<<<< HEAD
 
 			schedule_delayed_work(&hub->init_work,
 					msecs_to_jiffies(delay));
@@ -1249,9 +1248,6 @@ static void hub_activate(struct usb_hub *hub, enum hub_activation_type type)
 
 			queue_delayed_work(system_power_efficient_wq, &hub->init_work, msecs_to_jiffies(delay));
 
-=======
-			queue_delayed_work(system_power_efficient_wq, &hub->init_work, msecs_to_jiffies(delay));
->>>>>>> 0b9084b... Implemented PowerEfficient WQ for all Delayed Tasks
 			return;		/* Continues at init3: below */
 		} else {
 			msleep(delay);
