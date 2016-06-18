@@ -25,6 +25,7 @@
 #define TLV_LEN_SIZE sizeof(uint16_t)
 #define TLV_TYPE_SIZE sizeof(uint8_t)
 
+
 #ifdef CONFIG_QMI_ENCDEC_DEBUG
 
 #define qmi_encdec_dump(prefix_str, buf, buf_len) do { \

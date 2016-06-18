@@ -2667,12 +2667,10 @@ static void do_freq_control(long temp)
 		if (limit_idx < limit_idx_low)
 			limit_idx = limit_idx_low;
 		max_freq = table[limit_idx].frequency;
-<<<<<<< HEAD
+
 	} else if (temp < temp_threshold -
 		 msm_thermal_info.temp_hysteresis_degC) {
-=======
-	} else if (temp < temp_threshold - msm_thermal_info.temp_hysteresis_degC) {
->>>>>>> 124b647... Support for Controlling Temperature Throttle
+
 		if (limit_idx == limit_idx_high)
 			return;
 
