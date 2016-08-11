@@ -35,7 +35,7 @@
 #define MAX17040_CMD_LSB	0xFF
 
 #define MAX17040_DELAY		1000
-#define MAX17040_BATTERY_FULL	95
+#define MAX17040_BATTERY_FULL	100
 
 struct max17040_chip {
 	struct i2c_client		*client;
