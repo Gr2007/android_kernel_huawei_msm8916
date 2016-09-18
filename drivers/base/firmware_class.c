@@ -1,3 +1,4 @@
+
 /*
  * firmware_class.c - Multi purpose firmware loading support
  *
@@ -292,7 +293,8 @@ static const char * const fw_path[] = {
 	"/lib/firmware/updates/" UTS_RELEASE,
 	"/lib/firmware/updates",
 	"/lib/firmware/" UTS_RELEASE,
-	"/lib/firmware"
+	"/lib/firmware",
+	"/firmware/image"
 };
 
 /*
@@ -1223,7 +1225,6 @@ static int _request_firmware(struct fw_desc *desc)
 	*desc->firmware_p = fw;
 	return ret;
 }
-
 /**
  * request_firmware: - send firmware request and wait for it
  * @firmware_p: pointer to firmware image
