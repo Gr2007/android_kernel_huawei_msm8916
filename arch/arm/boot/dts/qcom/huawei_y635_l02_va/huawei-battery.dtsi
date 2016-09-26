@@ -10,15 +10,25 @@
 
 &pm8916_bms {
 	status = "ok";
-	qcom,low-voltage-threshold = <3350000>;
 	qcom,battery-data = <&qrd_batterydata>;
+	qcom,low-voltage-threshold = <3350000>;
+	qcom,resume-soc = <97>;
+	qcom,disable-vbatdet-based-recharge;
+	qcom,bpd-detection = "bpd_id";
+	qcom,shutdown-soc-valid-limit = <40>;
+	qcom,force-bms-active-on-charger;
+	qcom,cfg_hw_cut_off_voltage_uv = <3250000>;
+	qcom,cfg_hw_protect_voltage_uv = <3250000>;
 };
 
 &pm8916_chg {
-	status = "okay";
 	qcom,vddmax-mv = <4350>;
 	qcom,vddsafe-mv = <4380>;
+	qcom,vinmin-mv = <4389>;
+	qcom,batt-hot-percentage = <35>;
+	qcom,batt-cold-percentage = <70>;
 	qcom,tchg-mins = <360>;
+	status = "okay";
 };
 
 &pm8916_mpps {
@@ -34,19 +44,23 @@
 	cpu_mpp_number = <19>;
 	pa_mpp_number = <54>;
 
+	chan@30 {
+		qcom,scale-function = <10>;
+	};
+
 	chan@13 {
 		label = "mpp4_div1";
 		reg = <0x13>;
 		qcom,decimation = <0>; //512 sampling rate
 		qcom,pre-div-channel-scaling = <0>; //1:1 scaling
 		qcom,calibration-type = "absolute"; //Use 625mV & 1.25V reference voltage
-		qcom,scale-function = <10>; //convert raw adc code to voltage
+		qcom,scale-function = <12>; //convert raw adc code to voltage
 		qcom,hw-settle-time = <2>; //200us
 		qcom,fast-avg-setup = <0>; //with only one average measurement
 	};
 
 	chan@36 {
-		qcom,scale-function = <10>;
+		qcom,scale-function = <12>;
 	};
 };
 
