@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#Variables
+#Datos
 VERSION="V9"
-KERNEL="/home/gr2_srk/msm8916/arch/arm/boot/zImage"
-ZIP="/home/gr2_srk/zip"
+zimagen="/home/gr2_srk/msm8916/arch/arm/boot/zImage"
+ZIP="/home/gr2_srk/msm8916/zip/"
 BUILD_START=$(date +"%s")
 blue='\033[0;34m'
 cyan='\033[0;36m'
@@ -32,13 +32,11 @@ then
             export ARCH=arm
             make gr2_defconfig
             make -j5
-	echo -e "$red >>>Creando zip<<<"
-	rm -rvf $ZIP/tools/zImage
-	mv $KERNEL $ZIP/tools
-	rm -f $ZIP/*.zip
+	echo -e "$cyan Creando zip"
+	mv $zimagen $ZIP
         cd $ZIP
 	zip -r DemonacTeam-Kernel-$VERSION *
-	cd
+	cd       
 	BUILD_END=$(date +"%s")
 	DIFF=$(($BUILD_END - $BUILD_START))
 	echo -e "$yellow COmpilacion completa en $(($DIFF / 60)) minuto(s) con $(($DIFF % 60)) segundos.$nocol"    
@@ -54,16 +52,14 @@ then
         then
 #COMPILACION   
 	echo -e "$yellow*****************************************************"
-	echo "          Iniciando Compilación DemoniacTeam "$DEVICE"         "
+	echo "          Iniciando Compilación DemoniacTeam          "
 	echo -e "*****************************************************$nocol"             
             export CROSS_COMPILE=/home/gr2_srk/arm-linux-androideabi-5.x/bin/arm-eabi-
             export ARCH=arm
             make gr2_defconfig
             make -j5
-	echo -e "$red Creando zip"
-	rm -rvf $ZIP/tools/zImage
-	mv $KERNEL $ZIP/tools
-	rm -f $ZIP/*.zip
+	echo -e "$cyan Creando zip"
+	mv $zimagen $ZIP
         cd $ZIP
 	zip -r DemonacTeam-Kernel-$VERSION *
 	cd       
@@ -72,5 +68,7 @@ then
 	echo -e "$yellow COmpilacion completa en $(($DIFF / 60)) minuto(s) con $(($DIFF % 60)) segundos.$nocol"                
 	fi
 fi
-read -rsp $ 'presiona cualquier tecla para continuar...\n' -n 1 key
-# echo $key
+	echo -e "$yellow*****************************************************"
+	echo "                       Compilacion completa!         "
+	echo -e "*****************************************************$nocol" 
+
