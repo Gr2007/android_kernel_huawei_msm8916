@@ -8,15 +8,12 @@ do.devicecheck=1
 do.initd=1
 do.modules=0
 do.cleanup=1
-device.name1=Y550-L01
-device.name2=Y550-L02
-device.name3=Y550-L03
-device.name4=hwY635
-device.name5=Y635-L03
-device.name6=Y635-L01
-device.name7=Y635-L02
-device.name8=Y635-L21
-device.name9=Y635
+device.name1=hwY635
+device.name2=Y635-L03
+device.name3=Y635-L01
+device.name4=Y635-L02
+device.name5=Y635-L21
+device.name6=Y635
 
 # shell variables
 block=/dev/block/bootdevice/by-name/boot;

@@ -34,7 +34,7 @@ read REPLY1
 		echo -e "$yellow*****************************************************"
 		echo "                Iniciando Compilación DemoniacTeam         "
 		echo -e "*****************************************************$nocol"
-           	 export CROSS_COMPILE=/home/gr2_srk/arm-linux-androideabi-5.x/bin/arm-eabi-
+           	 export CROSS_COMPILE=/home/gr2/UBERTC-arm-eabi-6.0/bin/arm-eabi-
             	export ARCH=arm
             	make gr2_defconfig
             	make -j5
@@ -62,7 +62,7 @@ read REPLY3
 		echo -e "$yellow*****************************************************"
 		echo "          Iniciando Compilación DemoniacTeam          "
 		echo -e "*****************************************************$nocol"             
-            	export CROSS_COMPILE=/home/gr2_srk/arm-linux-androideabi-5.x/bin/arm-eabi-
+            	export CROSS_COMPILE=/home/gr2/UBERTC-arm-eabi-6.0/bin/arm-eabi-
             	export ARCH=arm
             	make gr2_defconfig
             	make -j5
